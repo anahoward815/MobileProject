@@ -10,7 +10,7 @@ void main() => runApp(MaterialApp(
   initialRoute: '/',
   routes: {
     '/exp': (context) => RateYourExperience(),
-    '/equipment': (context) => const Equipment(),
+    '/equipment': (context) => Equipment(),
     '/': (context) => RateYourExperience(),
     '/hikeRecommendation': (context) => HikeRecommendationPage(),
     '/hikeInfo': (context) => HikingInfo.Info(DefaultHikeList().getHikeList()[0]),

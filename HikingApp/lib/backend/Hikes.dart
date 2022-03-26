@@ -6,14 +6,16 @@ class Hikes {
   late String hikeDifficulty;
   late String hikeTerrain;
   late String hikeLocation;
+  late String hikeImagePath;
   late double hikeElevation;
   late double hikeLength;
 
-  Hikes(String name, String difficulty, String terrain, String location, double elevation, double length) {
+  Hikes(String name, String difficulty, String terrain, String location, String imagePath, double elevation, double length) {
     hikeName = name;
     hikeDifficulty = difficulty;
     hikeTerrain = terrain;
     hikeLocation = location;
+    hikeImagePath = imagePath;
     hikeElevation = elevation;
     hikeLength = length;
   }
@@ -28,6 +30,10 @@ class Hikes {
 
   String getHikeTerrain() {
     return hikeTerrain;
+  }
+
+  String getHikeImagePath() {
+    return hikeImagePath;
   }
 
   String getHikeLocation() {

@@ -37,7 +37,7 @@ class _RateYourExperience extends State<RateYourExperience> {
             ),
           ),
           const Padding(
-            padding: EdgeInsets.fromLTRB(0, 0, 150, 10),
+            padding: EdgeInsets.fromLTRB(0, 0, 150, 0),
             child: Text(
               'Hiking Frequency',
               style: TextStyle(
@@ -97,7 +97,7 @@ class _RateYourExperience extends State<RateYourExperience> {
             },
           ),
           const Padding(
-            padding: EdgeInsets.fromLTRB(0, 30, 110, 10),
+            padding: EdgeInsets.fromLTRB(0, 10, 110, 0),
             child: Text(
               'Average Hike Length',
               style: TextStyle(
@@ -146,7 +146,13 @@ class _RateYourExperience extends State<RateYourExperience> {
               });
             },
           ),
-
+          RaisedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/equipment');
+            },
+            child: Text('next'),
+            color: Color.fromRGBO(136, 183, 175, 100),
+          )
         ],
       )
     );

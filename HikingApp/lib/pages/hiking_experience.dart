@@ -1,7 +1,7 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../reusable_widgets/AppHeader.dart';
 
 class RateYourExperience extends StatefulWidget {
   @override
@@ -21,11 +21,7 @@ class _RateYourExperience extends State<RateYourExperience> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.lightBlueAccent[200],
-        title: Text('HikR'),
-        elevation: 0,
-      ),
+      appBar: appHeader(),
       body: Column(
         children: [
           Text(

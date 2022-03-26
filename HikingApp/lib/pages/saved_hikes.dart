@@ -11,8 +11,6 @@ class HikeRecommendationPage extends StatefulWidget {
 class _HikeRecommendationPageState extends State<HikeRecommendationPage> {
   String savedHike = "Saved Hikes";
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

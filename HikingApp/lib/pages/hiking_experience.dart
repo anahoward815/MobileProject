@@ -28,6 +28,10 @@ class _RateYourExperience extends State<RateYourExperience> {
       ),
       body: Column(
         children: [
+          Text(
+            'Hiking Frequency',
+            textAlign: TextAlign.left,
+          ),
           RadioListTile(
             title: const Text('4+ times per week'),
             value: RadioButton.one,

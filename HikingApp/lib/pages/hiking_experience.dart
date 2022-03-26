@@ -8,10 +8,12 @@ class RateYourExperience extends StatefulWidget {
   _RateYourExperience createState() => _RateYourExperience();
 }
 
-enum RadioButton { one, two, three, four, five }
+enum Experience { one, two, three, four, five }
+enum Length { one, two, three, four }
 
 class _RateYourExperience extends State<RateYourExperience> {
-  RadioButton? _button = RadioButton.one;
+  Experience? _experience = Experience.one;
+  Length? _length = Length.one;
 
   @override
   void initState() {
@@ -24,56 +26,133 @@ class _RateYourExperience extends State<RateYourExperience> {
       appBar: appHeader(),
       body: Column(
         children: [
+          const Padding(
+            padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+            child: Text(
+              'Rate your experience:',
+              style: TextStyle(
+                fontSize: 24.0,
+              ),
+              textAlign: TextAlign.left,
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(0, 0, 150, 0),
+            child: Text(
+              'Hiking Frequency',
+              style: TextStyle(
+                fontSize: 28.0,
+              ),
+              textAlign: TextAlign.left,
+            ),
+          ),
           RadioListTile(
             title: const Text('4+ times per week'),
-            value: RadioButton.one,
-            groupValue: _button,
-            onChanged: (RadioButton? value) {
+            value: Experience.one,
+            groupValue: _experience,
+            onChanged: (Experience? value) {
               setState(() {
-                _button = value;
+                _experience = value;
               });
             },
           ),
           RadioListTile(
             title: const Text('1-3 times per week'),
-            value: RadioButton.two,
-            groupValue: _button,
-            onChanged: (RadioButton? value) {
+            value: Experience.two,
+            groupValue: _experience,
+            onChanged: (Experience? value) {
               setState(() {
-                _button = value;
+                _experience = value;
               });
             },
           ),
           RadioListTile(
             title: const Text('1-3 times per month'),
-            value: RadioButton.three,
-            groupValue: _button,
-            onChanged: (RadioButton? value) {
+            value: Experience.three,
+            groupValue: _experience,
+            onChanged: (Experience? value) {
               setState(() {
-                _button = value;
+                _experience = value;
               });
             },
           ),
           RadioListTile(
             title: const Text('1-3 times per year'),
-            value: RadioButton.four,
-            groupValue: _button,
-            onChanged: (RadioButton? value) {
+            value: Experience.four,
+            groupValue: _experience,
+            onChanged: (Experience? value) {
               setState(() {
-                _button = value;
+                _experience = value;
               });
             },
           ),
           RadioListTile(
             title: const Text('Never'),
-            value: RadioButton.five,
-            groupValue: _button,
-            onChanged: (RadioButton? value) {
+            value: Experience.five,
+            groupValue: _experience,
+            onChanged: (Experience? value) {
               setState(() {
-                _button = value;
+                _experience = value;
               });
             },
           ),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(0, 10, 110, 0),
+            child: Text(
+              'Average Hike Length',
+              style: TextStyle(
+                fontSize: 28.0,
+              ),
+              textAlign: TextAlign.left,
+            ),
+          ),
+          RadioListTile(
+            title: const Text('6+ miles'),
+            value: Length.one,
+            groupValue: _length,
+            onChanged: (Length? value) {
+              setState(() {
+                _length = value;
+              });
+            },
+          ),
+          RadioListTile(
+            title: const Text('3-5 miles'),
+            value: Length.two,
+            groupValue: _length,
+            onChanged: (Length? value) {
+              setState(() {
+                _length = value;
+              });
+            },
+          ),
+          RadioListTile(
+            title: const Text('1-2 miles'),
+            value: Length.three,
+            groupValue: _length,
+            onChanged: (Length? value) {
+              setState(() {
+                _length = value;
+              });
+            },
+          ),
+          RadioListTile(
+            title: const Text('< 1 mile'),
+            value: Length.four,
+            groupValue: _length,
+            onChanged: (Length? value) {
+              setState(() {
+                _length = value;
+              });
+            },
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/equipment');
+            },
+            child: Text('next'),
+            color: Color.fromRGBO(136, 183, 175, 100),
+          )
         ],
       )
     );

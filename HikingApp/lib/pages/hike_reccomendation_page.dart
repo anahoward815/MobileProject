@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hiking_app/backend/DefaultHikeList.dart';
 import 'package:hiking_app/reusable_widgets/AppHeader.dart';
 import 'package:hiking_app/reusable_widgets/HikeCardDisplay.dart';
 

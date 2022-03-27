@@ -54,7 +54,7 @@ class _EquipmentState extends State<Equipment> {
               }
           );
         }
-      )
+      ),
     );
   }
 }

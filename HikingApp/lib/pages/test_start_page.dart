@@ -36,7 +36,31 @@ class _StartState extends State<Start> {
                 onPressed: () {
                   Navigator.pushNamed(context, '/equipment');
                 },
-              )
+              ),
+              ElevatedButton(
+                child: const Text('open fitness'),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/fitness');
+                },
+              ),
+              ElevatedButton(
+                child: const Text('open recommendations'),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/hikeRecommendation');
+                },
+              ),
+              ElevatedButton(
+                child: const Text('open hike info'),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/hikeInfo');
+                },
+              ),
+              ElevatedButton(
+                child: const Text('open account menu'),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/accountMenu');
+                },
+              ),
             ],
           )
         )

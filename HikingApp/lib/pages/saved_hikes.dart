@@ -3,14 +3,15 @@ import 'package:hiking_app/reusable_widgets/AppHeader.dart';
 import 'package:hiking_app/reusable_widgets/HikeCardDisplay.dart';
 import 'package:hiking_app/reusable_widgets/SortBox.dart';
 
-class HikeRecommendationPage extends StatefulWidget {
-  const HikeRecommendationPage({Key? key}) : super(key: key);
+class SavedHikesPage extends StatefulWidget {
+  const SavedHikesPage({Key? key}) : super(key: key);
 
   @override
-  _HikeRecommendationPageState createState() => _HikeRecommendationPageState();
+  State<SavedHikesPage> createState() => _SavedHikesPage();
 }
 
-class _HikeRecommendationPageState extends State<HikeRecommendationPage> {
+class _SavedHikesPage extends State<SavedHikesPage> {
+
   String savedHike = "Saved Hikes";
 
   @override

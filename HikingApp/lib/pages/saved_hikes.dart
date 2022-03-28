@@ -35,7 +35,21 @@ class _SavedHikesPage extends State<SavedHikesPage> {
                 ],
               ),
           ),
-          HikeCardDisplay()
+          HikeCardDisplay(),
+          ElevatedButton(
+            onPressed: () {
+            },
+            child: Text(
+              'Add Hike +',
+              style: TextStyle(
+                fontSize: 25.0,
+              ),
+            ),
+            style: ElevatedButton.styleFrom(
+                primary: Colors.lightBlue[300],
+                padding: EdgeInsets.fromLTRB(50, 20, 50, 20)
+            ),
+          )
         ],
       ),
     );

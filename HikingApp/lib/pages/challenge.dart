@@ -15,6 +15,33 @@ class _ChallengeState extends State<Challenge> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appHeader(),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(25.0),
+            child: Text(
+              'These hikes are geared towards pushing you a little harder '
+                  'physically. Don\'t worry, they are still appropriate '
+                  'for your equipment!',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 22.0,
+              ),
+            ),
+
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 12, 12),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                SortBox(),
+              ],
+            ),
+          ),
+          HikeCardDisplay(),
+        ],
+      )
     );
   }
 }

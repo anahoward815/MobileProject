@@ -92,7 +92,7 @@ class _FitnessState extends State<Fitness> {
               },
               child: Text('next'),
               style: ElevatedButton.styleFrom(
-                  primary: Color.fromRGBO(136, 183, 175, 100),
+                  primary: Colors.lightBlue[300],
                   padding: EdgeInsets.fromLTRB(30, 5, 30, 5)
               ),
             )

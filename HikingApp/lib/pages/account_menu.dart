@@ -22,6 +22,20 @@ class _AccountMenuState extends State<AccountMenu> {
             icon: Icon(Icons.arrow_forward_ios_rounded),
             label: Text('Account Info')),
           ),
+          Card(
+            color: Colors.grey[200],
+            child: TextButton.icon(
+                onPressed: () {},
+                icon: Icon(Icons.arrow_forward_ios_rounded),
+                label: Text('Saved Hikes')),
+          ),
+          Card(
+            color: Colors.grey[200],
+            child: TextButton.icon(
+                onPressed: () {},
+                icon: Icon(Icons.arrow_forward_ios_rounded),
+                label: Text('Recent Activity')),
+          ),
         ],
       ),
     );

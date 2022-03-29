@@ -11,6 +11,11 @@ class Challenge extends StatefulWidget {
 }
 
 class _ChallengeState extends State<Challenge> {
+
+  String challengeHeader = 'These hikes are geared towards pushing you a little harder '
+      'physically. Don\'t worry, they are still appropriate '
+      'for your equipment!';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,9 +25,7 @@ class _ChallengeState extends State<Challenge> {
           Padding(
             padding: const EdgeInsets.all(25.0),
             child: Text(
-              'These hikes are geared towards pushing you a little harder '
-                  'physically. Don\'t worry, they are still appropriate '
-                  'for your equipment!',
+              challengeHeader,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 22.0,

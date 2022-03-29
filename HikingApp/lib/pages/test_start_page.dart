@@ -94,7 +94,17 @@ class _StartState extends State<Start> {
               ElevatedButton(
                 child: const Text('open recent hike stats'),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/recentStats');
+                  //Hikes(data['name'], data['difficulty'], data['terrain'], data['location'], data['imagePath'], data['elevation'], data['length']);
+                  //Hikes("Timpanogos", "Intermediate", 'Mountain/Rock', 'Utah County', 'assets/images/timpanogos.jpg', 4400.0, 13.0),
+                  Navigator.pushNamed(context, '/recentStats', arguments: {
+                    'name': 'Timpanogos',
+                    'difficulty': 'Intermediate',
+                    'terrain': 'Mountain/Rock',
+                    'location': 'Utah County',
+                    'imagePath': 'assets/images/timpanogos.jpg',
+                    'elevation': 4400.0,
+                    'length': 13.0
+                  });
                 },
               ),
             ],

@@ -116,15 +116,40 @@ class _HikingInfoState extends State<HikingInfo> {
               Card(
                 color: Colors.lightBlueAccent,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    DailyWeather.day('Mon'),
-                    DailyWeather.day('Tues'),
-                    DailyWeather.day('Wed'),
-                    DailyWeather.day('Thurs'),
-                    DailyWeather.day('Fri'),
-                    DailyWeather.day('Sat'),
-                    DailyWeather.day('Sun'),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(30.0, 0.0, 0.0, 0.0),
+                      child: Icon(
+                        Icons.wb_sunny_outlined,
+                        size: 40.0,
+                      ),
+                    ),
+                    SizedBox(width: 30.0,),
+                    Text(
+                        '53 F',
+                        style: TextStyle(
+                          fontSize: 40.0
+                        ),
+                    ),
+                    SizedBox(width: 50.0,),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'High: 56 F',
+                          style: TextStyle(
+                              fontSize: 20.0
+                          ),
+                        ),
+                        Text(
+                          'Low: 23 F',
+                          style: TextStyle(
+                              fontSize: 20.0
+                          ),
+                        )
+                      ],
+                    )
                   ],
                 ),
               ),

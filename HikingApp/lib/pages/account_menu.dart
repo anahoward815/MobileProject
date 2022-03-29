@@ -14,28 +14,40 @@ class _AccountMenuState extends State<AccountMenu> {
     return Scaffold(
       appBar: appHeader(),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Card(
-            color: Colors.grey[200],
-            child: TextButton.icon(
-            onPressed: () {},
-            icon: Icon(Icons.arrow_forward_ios_rounded),
-            label: Text('Account Info')),
+          Padding(
+            padding: EdgeInsets.all(15),
+            child: ListView(
+              children: [
+                ListTile.divideTiles(
+                    tiles: [
+                    
+                ]),
+                Card(
+                  color: Colors.grey[200],
+                  child: TextButton.icon(
+                      onPressed: () {},
+                      icon: Icon(Icons.arrow_forward_ios_rounded),
+                      label: Text('Recent Activity')),
+                ),
+              ],
+            ),
           ),
-          Card(
-            color: Colors.grey[200],
-            child: TextButton.icon(
-                onPressed: () {},
-                icon: Icon(Icons.arrow_forward_ios_rounded),
-                label: Text('Saved Hikes')),
-          ),
-          Card(
-            color: Colors.grey[200],
-            child: TextButton.icon(
-                onPressed: () {},
-                icon: Icon(Icons.arrow_forward_ios_rounded),
-                label: Text('Recent Activity')),
-          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(70, 15, 70, 15),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/');
+              },
+              child: Text('Logout'),
+              style: ElevatedButton.styleFrom(
+                  primary: Color.fromRGBO(136, 183, 175, 100),
+                  padding: EdgeInsets.fromLTRB(30, 5, 30, 5)
+              ),
+            ),
+          )
         ],
       ),
     );

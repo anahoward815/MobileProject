@@ -9,11 +9,81 @@ class AccountMenu extends StatefulWidget {
 }
 
 class _AccountMenuState extends State<AccountMenu> {
+
+  Map<String, bool> equipmentList = {
+    "Account Info": false,
+    "Saved Hikes": false,
+    "Recent Hikes": false,
+  };
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appHeader(),
-      body: Column(
+      body: Container(
+        height: 400,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Expanded(
+              child: ListView(
+                padding: EdgeInsets.all(15),
+                children: ListTile.divideTiles(
+                    context: context,
+                    tiles: [
+                      ListTile(
+                        title: Text('Account Info'),
+                      ),
+                      ListTile(
+                        title: Text('Saved Hikes'),
+                      ),
+                      ListTile(
+                        title: Text('Recent Activity'),
+                      )
+                    ]
+                ).toList(),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(70, 15, 70, 15),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/');
+                },
+                child: Text('Logout'),
+                style: ElevatedButton.styleFrom(
+                    primary: Color.fromRGBO(136, 183, 175, 100),
+                    padding: EdgeInsets.fromLTRB(30, 5, 30, 5)
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+/*
+
+Padding(
+            padding: const EdgeInsets.fromLTRB(70, 15, 70, 15),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/');
+              },
+              child: Text('Logout'),
+              style: ElevatedButton.styleFrom(
+                  primary: Color.fromRGBO(136, 183, 175, 100),
+                  padding: EdgeInsets.fromLTRB(30, 5, 30, 5)
+              ),
+            ),
+          )
+
+body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -22,7 +92,14 @@ class _AccountMenuState extends State<AccountMenu> {
             child: ListView(
               children: [
                 ListTile.divideTiles(
+                  context: context,
                     tiles: [
+<<<<<<< HEAD
+=======
+                      ListTile(
+                        title: Text('Account Info'),
+                      ),
+>>>>>>> a0c650ebc5d04a9696a1611213e845968ecd423e
 
                 ]),
                 Card(
@@ -35,6 +112,7 @@ class _AccountMenuState extends State<AccountMenu> {
               ],
             ),
           ),
+
           Padding(
             padding: const EdgeInsets.fromLTRB(70, 15, 70, 15),
             child: ElevatedButton(
@@ -50,6 +128,6 @@ class _AccountMenuState extends State<AccountMenu> {
           )
         ],
       ),
-    );
-  }
-}
+
+
+ */

@@ -15,6 +15,11 @@ class _RecentActivityState extends State<RecentActivity> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appHeader(),
+      body: Column(
+        children: [
+          HikeCardDisplay(),
+        ],
+      ),
     );
   }
 }

@@ -33,21 +33,30 @@ class _AccountMenuState extends State<AccountMenu> {
                 children: ListTile.divideTiles(
                     context: context,
                     tiles: [
-                      ListTile(
-                        title: Text('Account Info'),
+                      TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/accountInfo');
+                          },
+                          child: Text('Account Info')
                       ),
-                      ListTile(
-                        title: Text('Saved Hikes'),
+                      TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/saved');
+                          },
+                          child: Text('Saved Hikes')
                       ),
-                      ListTile(
-                        title: Text('Recent Activity'),
-                      )
+                      TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/recentActivity');
+                          },
+                          child: Text('Recent Activity')
+                      ),
                     ]
                 ).toList(),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(70, 15, 70, 15),
+              padding: const EdgeInsets.fromLTRB(70, 10, 70, 15),
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/');
@@ -65,66 +74,3 @@ class _AccountMenuState extends State<AccountMenu> {
     );
   }
 }
-
-
-/*
-
-Padding(
-            padding: const EdgeInsets.fromLTRB(70, 15, 70, 15),
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/');
-              },
-              child: Text('Logout'),
-              style: ElevatedButton.styleFrom(
-                  primary: Color.fromRGBO(136, 183, 175, 100),
-                  padding: EdgeInsets.fromLTRB(30, 5, 30, 5)
-              ),
-            ),
-          )
-
-body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Padding(
-            padding: EdgeInsets.all(15),
-            child: ListView(
-              children: [
-                ListTile.divideTiles(
-                  context: context,
-                    tiles: [
-                      ListTile(
-                        title: Text('Account Info'),
-                      ),
-
-                ]),
-                Card(
-                  color: Colors.grey[200],
-                  child: TextButton.icon(
-                      onPressed: () {},
-                      icon: Icon(Icons.arrow_forward_ios_rounded),
-                      label: Text('Recent Activity')),
-                ),
-              ],
-            ),
-          ),
-
-          Padding(
-            padding: const EdgeInsets.fromLTRB(70, 15, 70, 15),
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/');
-              },
-              child: Text('Logout'),
-              style: ElevatedButton.styleFrom(
-                  primary: Color.fromRGBO(136, 183, 175, 100),
-                  padding: EdgeInsets.fromLTRB(30, 5, 30, 5)
-              ),
-            ),
-          )
-        ],
-      ),
-
-
- */

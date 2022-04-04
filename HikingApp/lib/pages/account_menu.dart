@@ -21,9 +21,10 @@ class _AccountMenuState extends State<AccountMenu> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appHeader(),
-      body: Container(
-        height: 400,
-        child: Column(
+     // body: Container(
+       // height: 400,
+        //child:
+        body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -70,7 +71,7 @@ class _AccountMenuState extends State<AccountMenu> {
             )
           ],
         ),
-      ),
+      //),
     );
   }
 }

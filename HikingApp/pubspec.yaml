@@ -29,6 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_osm_plugin: ^0.33.0+1
 
 
   # The following adds the Cupertino Icons font to your application.

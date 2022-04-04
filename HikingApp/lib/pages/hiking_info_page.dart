@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hiking_app/backend/Hikes.dart';
+import 'package:hiking_app/reusable_widgets/TimpanogosHikeMap.dart';
 import 'package:hiking_app/reusable_widgets/weatherDisplay.dart';
 
 import '../reusable_widgets/AppHeader.dart';
@@ -41,6 +42,14 @@ class _HikingInfoState extends State<HikingInfo> {
                   image: AssetImage(
                     hike.hikeImagePath
                   )
+              ),
+              SizedBox(height: 10.0,),
+              Card(
+                color: Colors.grey[200],
+                child: Container(
+                  height: 400,
+                  child: TimpanogosHikeMap(),
+                )
               ),
               SizedBox(height: 10.0,),
               Card(

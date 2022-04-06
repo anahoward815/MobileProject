@@ -1,20 +1,20 @@
-import 'package:flutter/material.dart';
 import 'package:hiking_app/backend/Hikes.dart';
 
 class SavedHikes {
-  List<Hikes> savedHikesList = [];
-
-  factory SavedHikes() {
-    return savedHikes;
+  SavedHikes._();
+  static SavedHikes? _instance;
+  static SavedHikes get inst => _instance ??= SavedHikes._();
+  init () async {
+    savedHikesList = [];
   }
 
-  static final SavedHikes savedHikes = SavedHikes();
-
-  void addHike(Hikes savedHike) {
-    savedHikesList.add(savedHike);
-  }
+  late List<Hikes> savedHikesList;
 
   List<Hikes> getList() {
     return savedHikesList;
+  }
+
+  void addHike(Hikes savedHike) {
+    savedHikesList.add(savedHike);
   }
 }

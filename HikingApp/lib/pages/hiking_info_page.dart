@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hiking_app/backend/Hikes.dart';
+import 'package:hiking_app/backend/SavedHikes.dart';
 import 'package:hiking_app/reusable_widgets/TimpanogosHikeMap.dart';
 import 'package:hiking_app/reusable_widgets/weatherDisplay.dart';
 
@@ -9,7 +10,7 @@ late Hikes hike;
 
 
 class HikingInfo extends StatefulWidget {
-  const HikingInfo({Key? key}) : super(key: key);
+  HikingInfo({Key? key}) : super(key: key);
 
   HikingInfo.Info(Hikes val) {
       hike = val;
@@ -20,6 +21,10 @@ class HikingInfo extends StatefulWidget {
 }
 
 class _HikingInfoState extends State<HikingInfo> {
+
+  String saveText = 'Save Hike';
+
+  bool pressed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -233,9 +238,20 @@ class _HikingInfoState extends State<HikingInfo> {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () async {
+                  if(pressed == false){
+                    print('big mistake');
+                    await SavedHikes.inst.init();
+                    SavedHikes.inst.addHike(hike);
+                    print(SavedHikes.inst.getList().elementAt(0));
+                    setState(() {
+                      saveText = 'Saved';
+                      pressed = true;
+                    });
+                  }
+                },
                 child: Text(
-                    'Save Hike'
+                    saveText,
                 ),
                 style: ElevatedButton.styleFrom(
                     primary: Colors.teal[200]

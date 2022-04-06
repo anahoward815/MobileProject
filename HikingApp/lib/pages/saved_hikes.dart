@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hiking_app/backend/Hikes.dart';
 import 'package:hiking_app/reusable_widgets/AppHeader.dart';
 import 'package:hiking_app/reusable_widgets/HikeCardDisplay.dart';
 import 'package:hiking_app/reusable_widgets/SortBox.dart';
+
+import '../backend/SavedHikes.dart';
 
 class SavedHikesPage extends StatefulWidget {
   const SavedHikesPage({Key? key}) : super(key: key);
@@ -13,6 +16,11 @@ class SavedHikesPage extends StatefulWidget {
 class _SavedHikesPage extends State<SavedHikesPage> {
 
   String savedHike = "Saved Hikes";
+
+  List<Hikes> getHikes() {
+    SavedHikes.inst.init();
+    return SavedHikes.inst.getList();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +43,7 @@ class _SavedHikesPage extends State<SavedHikesPage> {
                 ],
               ),
           ),
-          HikeCardDisplay(),
+          HikeCardDisplay.withList(getHikes()),
           ElevatedButton(
             onPressed: () {
             },

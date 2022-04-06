@@ -5,10 +5,12 @@ class SavedHikes {
   static SavedHikes? _instance;
   static SavedHikes get inst => _instance ??= SavedHikes._();
   init () async {
-    savedHikesList = [];
+    if(savedHikesList.isEmpty){
+      savedHikesList = [];
+    }
   }
 
-  late List<Hikes> savedHikesList;
+  late List<Hikes> savedHikesList = [];
 
   List<Hikes> getList() {
     return savedHikesList;

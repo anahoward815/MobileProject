@@ -13,8 +13,8 @@ class _TimpanogosHikeMapState extends State<TimpanogosHikeMap> {
 
   MapController mapController = MapController(
     initMapWithUserPosition: false,
-    initPosition: GeoPoint(latitude: 47.4358055, longitude: 8.4737324),
-    areaLimit: BoundingBox( east: 10.4922941, north: 47.8084648, south: 45.817995, west: 5.9559113,),
+    initPosition: GeoPoint(latitude: 40.431182, longitude: -111.639283),
+    areaLimit: BoundingBox( east: -105.4922941, north: 43.8084648, south: 38.817995, west: -116.9559113,),
   );
 
   @override
@@ -22,7 +22,7 @@ class _TimpanogosHikeMapState extends State<TimpanogosHikeMap> {
     return OSMFlutter(
       controller:mapController,
       trackMyPosition: false,
-      initZoom: 12,
+      initZoom: 14,
       minZoomLevel: 8,
       maxZoomLevel: 14,
       stepZoom: 1.0,

@@ -1,8 +1,12 @@
+import 'dart:convert';
+import 'dart:io';
+import 'package:http/http.dart';
 import 'package:flutter/material.dart';
 import 'package:hiking_app/backend/Hikes.dart';
 import 'package:hiking_app/backend/SavedHikes.dart';
 import 'package:hiking_app/reusable_widgets/TimpanogosHikeMap.dart';
 import 'package:hiking_app/reusable_widgets/weatherDisplay.dart';
+import 'package:hiking_app/backend/Weather.dart';
 
 import '../reusable_widgets/AppHeader.dart';
 
@@ -25,9 +29,31 @@ class _HikingInfoState extends State<HikingInfo> {
   String saveText = 'Save Hike';
 
   bool pressed = false;
+  double currentTemp = 13.62;
+  double high = 22.51;
+  double low = 6.46;
+  String currentWeatherIcon = '';
+  String currentIconUrl = '';
+
+  void getWeather() async {
+    // Weather instance = Weather(0.0,0.0);
+    await Weather.inst.init(0.0, 0.0);
+    currentTemp = Weather.inst.currentTemp;
+    high = Weather.inst.high;
+    low = Weather.inst.low;
+    currentIconUrl = Weather.inst.currentIconUrl;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getWeather();
+  }
 
   @override
   Widget build(BuildContext context) {
+    // getWeather();
+    // sleep(const Duration(seconds: 10));
     return Scaffold(
       appBar: appHeader(),
       body: SingleChildScrollView(
@@ -121,7 +147,7 @@ class _HikingInfoState extends State<HikingInfo> {
                 ),
               ),
               SizedBox(height: 10.0,),
-              Text(
+              const Text(
                 'Today\'s Weather',
                 style: TextStyle(
                     fontSize: 18.0
@@ -133,7 +159,8 @@ class _HikingInfoState extends State<HikingInfo> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(30.0, 0.0, 0.0, 0.0),
+                      padding: EdgeInsets.fromLTRB(30.0, 0.0, 0.0, 0.0),
+                      // child: Image.network(currentIconUrl),
                       child: Icon(
                         Icons.wb_sunny_outlined,
                         size: 40.0,
@@ -141,9 +168,9 @@ class _HikingInfoState extends State<HikingInfo> {
                     ),
                     SizedBox(width: 30.0,),
                     Text(
-                        '53 F',
+                        currentTemp.toString() + ' F',
                         style: TextStyle(
-                          fontSize: 40.0
+                          fontSize: 30.0
                         ),
                     ),
                     SizedBox(width: 50.0,),
@@ -151,13 +178,13 @@ class _HikingInfoState extends State<HikingInfo> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'High: 56 F',
+                          'High: ' + high.toString() + ' F',
                           style: TextStyle(
                               fontSize: 20.0
                           ),
                         ),
                         Text(
-                          'Low: 23 F',
+                          'Low: ' + low.toString() + ' F',
                           style: TextStyle(
                               fontSize: 20.0
                           ),

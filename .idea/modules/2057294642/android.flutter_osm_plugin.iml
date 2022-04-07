@@ -29,6 +29,7 @@
       <configuration version="3" platform="JVM 1.6" allPlatforms="JVM [1.6]" useProjectSettings="false">
         <compilerSettings />
         <compilerArguments>
+          <option name="jvmTarget" value="1.6" />
           <option name="languageVersion" value="1.4" />
           <option name="apiVersion" value="1.4" />
           <option name="pluginOptions">
@@ -45,11 +46,6 @@
     <output url="file://$MODULE_DIR$/../../../HikingApp/build/flutter_osm_plugin/intermediates/javac/debug/classes" />
     <output-test url="file://$MODULE_DIR$/../../../HikingApp/build/flutter_osm_plugin/intermediates/javac/debugUnitTest/classes" />
     <exclude-output />
-    <content url="file://$USER_HOME$/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_osm_plugin-0.33.0+1/android">
-      <sourceFolder url="file://$USER_HOME$/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_osm_plugin-0.33.0+1/android/src/main/kotlin" isTestSource="false" />
-      <sourceFolder url="file://$USER_HOME$/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_osm_plugin-0.33.0+1/android/src/main/res" type="java-resource" />
-      <excludeFolder url="file://$USER_HOME$/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_osm_plugin-0.33.0+1/android/.gradle" />
-    </content>
     <content url="file://$MODULE_DIR$/../../../HikingApp/build/flutter_osm_plugin/generated/aidl_source_output_dir/debug/out" />
     <content url="file://$MODULE_DIR$/../../../HikingApp/build/flutter_osm_plugin/generated/aidl_source_output_dir/debugAndroidTest/out" />
     <content url="file://$MODULE_DIR$/../../../HikingApp/build/flutter_osm_plugin/generated/ap_generated_sources/debug/out">
@@ -74,6 +70,11 @@
     </content>
     <content url="file://$MODULE_DIR$/../../../HikingApp/build/flutter_osm_plugin/generated/source/kapt/debugAndroidTest" />
     <content url="file://$MODULE_DIR$/../../../HikingApp/build/flutter_osm_plugin/generated/source/kapt/debugUnitTest" />
+    <content url="file://$USER_HOME$/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_osm_plugin-0.33.0+1/android">
+      <sourceFolder url="file://$USER_HOME$/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_osm_plugin-0.33.0+1/android/src/main/kotlin" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_osm_plugin-0.33.0+1/android/src/main/res" type="java-resource" />
+      <excludeFolder url="file://$USER_HOME$/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_osm_plugin-0.33.0+1/android/.gradle" />
+    </content>
     <orderEntry type="jdk" jdkName="Android API 29 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Gradle: io.flutter:flutter_embedding_debug:1.0.0-bd539267b42051b0da3d16ffa8f48949dce8aa8f" level="project" />

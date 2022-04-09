@@ -25,7 +25,7 @@ class _RecentHikeStatsState extends State<RecentHikeStats> {
       data = ModalRoute.of(context)!.settings.arguments as Map;
     }
 
-    recentHike = Hikes(data['name'], data['difficulty'], data['terrain'], data['location'], data['imagePath'], data['mapPath'], data['elevation'], data['length'], data['lat'], data['long']);
+    recentHike = data['hike'];
 
     return Scaffold(
       appBar: appHeader(),

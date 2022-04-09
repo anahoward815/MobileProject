@@ -7,9 +7,12 @@ import '../backend/DefaultHikeList.dart';
 class HikeCardDisplay extends StatefulWidget {
   late List<Hikes> hikeList;
 
+  bool recentHike = false;
+
   HikeCardDisplay({Key? key}) : super(key: key);
 
   HikeCardDisplay.withList(this.hikeList);
+  HikeCardDisplay.withBool(this.hikeList, this.recentHike);
 
   @override
   State<HikeCardDisplay> createState() => _HikeCardDisplayState();
@@ -17,15 +20,20 @@ class HikeCardDisplay extends StatefulWidget {
 
 class _HikeCardDisplayState extends State<HikeCardDisplay> {
 
-  late List<Hikes> hikeList;
-
   Future<void> card_clicked(double lat, double long, Hikes hike) async {
-    Weather weather = Weather(lat, long);
-    await weather.getWeather();
-    Navigator.pushNamed(context, '/hikeInfo', arguments: {
-      'weather': weather,
-      'hike': hike,
-    });
+    if(widget.recentHike){
+      Navigator.pushNamed(context, '/recentStats', arguments: {
+        'hike': hike,
+      });
+    }
+    else {
+      Weather weather = Weather(lat, long);
+      await weather.getWeather();
+      Navigator.pushNamed(context, '/hikeInfo', arguments: {
+        'weather': weather,
+        'hike': hike,
+      });
+    }
   }
 
   @override

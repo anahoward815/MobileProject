@@ -18,8 +18,9 @@ class _EquipmentState extends State<Equipment> {
     "Hiking pants": false,
     "Hiking boots": false,
     "Base layers": false,
-    "Hat": false,
     "Trekking poles": false,
+    "Hat": false,
+    "empty spot": false,
   };
 
   Map<int, bool> selectedFlag = {};
@@ -34,6 +35,21 @@ class _EquipmentState extends State<Equipment> {
         itemBuilder: (context, index) {
           bool _value = equipmentList.values.elementAt(index);
           String item = equipmentList.keys.elementAt(index);
+          if (index == equipmentList.keys.length - 1) {
+            return Container(
+              margin: const EdgeInsets.fromLTRB(160, 0, 160, 0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/fitness');
+                },
+                child: Text('next'),
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.lightBlue[300],
+                    // padding: EdgeInsets.fromLTRB(30, 5, 30, 5)
+                ),
+              ),
+            );
+          }
           return CheckboxListTile(
               value: _value,
               title: Text(

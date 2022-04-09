@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hiking_app/reusable_widgets/AppHeader.dart';
+import 'package:hiking_app/reusable_widgets/EquipmentCard.dart';
 import 'package:hiking_app/reusable_widgets/HikeCardDisplay.dart';
 import 'package:hiking_app/reusable_widgets/SortBox.dart';
 
@@ -13,23 +14,13 @@ class AccountEquipment extends StatefulWidget {
 
 
 class _AccountEquipmentState extends State<AccountEquipment> {
-  List<String> types = ['Footwear', 'Clothing', 'Misc'];
-  List<String> footwear = ["Heavy-duty Boots", "Running Shoes", "Water Shoes"];
-  List<String> clothing = ["Tank top", "running shorts", "Joggers", "Windbreaker"];
-  List<String> misc = ["Camelback", "Water bottle", "Hiking sticks", "Moleskin"];
-  late List<List<String>> stuff = [["Heavy-duty Boots", "Running Shoes", "Water Shoes"],
-                                   ["Tank top", "running shorts", "Joggers", "Windbreaker"],
-                                   ["Camelback", "Water bottle", "Hiking sticks", "Moleskin"]];
-  String currentFootwear = "";
-  String currentClothing = "";
-  String currentMisc = "";
+  List<String> equipment = ["Heavy-duty Boots", "Running Shoes", "Tank top", "running shorts", "Camelback", "Moleskin"];
+
+  final textFieldValueHolder = TextEditingController();
+
 
   @override
   void initState() {
-    currentFootwear = footwear[0];
-    currentClothing = clothing[0];
-    currentMisc = misc[0];
-    stuff.add(footwear); stuff.add(clothing); stuff.add(misc);
     super.initState();
   }
 
@@ -38,30 +29,49 @@ class _AccountEquipmentState extends State<AccountEquipment> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appHeader(),
-      body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Expanded(
-              child: ListView.builder(
-                    padding: const EdgeInsets.all(8),
-                    itemCount: types.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return ExpansionTile(
-                        title: Text(types[index], style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
-                        children: [
-                          Column(
-                            children:
-                              _buildExpandableList(stuff[index]),
-                          )
-                        ],
-                      );
-                    },
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  width: 280,
+                  padding: EdgeInsets.all(8),
+                  child: TextField(
+                    controller: textFieldValueHolder,
+                    autocorrect: false,
+                    decoration: InputDecoration(hintText: 'Enter new equipment'),
                   ),
+                ),
+                SizedBox(height: 10,),
+                Container(
+                  margin: const EdgeInsets.all(10),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.lightBlue,
+                      padding: EdgeInsets.all(12),
+                      textStyle: TextStyle(fontSize: 22),
+                    ),
+                    child: Text('Add Value To String Array'),
+                    onPressed: addValue,
+                  ),
+                ),
+                  Column(
+                    children: equipment.map((item) => EquipmentCard(
+                        equipment: item,
+                        delete: () {
+                          setState(() {
+                            equipment.remove(item);
+                          });
+                        }
+                    )).toList(),
+                  )
+              ],
             ),
-
-          ],
         ),
+      ),
 
     );
   }
@@ -75,14 +85,63 @@ class _AccountEquipmentState extends State<AccountEquipment> {
         ),
       );
     }
-    columnContent.add(ElevatedButton(
-        onPressed: () {
-
-        },
-        child: Text("Add Item")));
     return columnContent;
   }
+
+  showAlert(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: new Text('Please Enter Value in Text Field.'),
+          actions: <Widget>[
+            ElevatedButton(
+              child: new Text("OK"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void addValue() {
+    if (textFieldValueHolder.text == '') {
+      showAlert(context);
+    } else {
+      setState(() {
+        equipment.add(textFieldValueHolder.text);
+      });
+      print(equipment);
+    }
+  }
 }
+
+/*
+
+ExpansionTile(
+                        title: Text(types[index], style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
+                        children: [
+                          Column(
+                            children:
+                              _buildExpandableList(stuff[index]),
+                          )
+                        ],
+                      );
+
+                      ListView.builder(
+                    padding: const EdgeInsets.all(8),
+                    itemCount: equipment.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return ListTile(
+                        title: Text(equipment[index]),
+                      );
+                    },
+                  ),
+
+ */
 
 /*padding: EdgeInsets.all(15),
                     children: ListTile.divideTiles(

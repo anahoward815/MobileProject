@@ -9,8 +9,10 @@ class Hikes {
   late String hikeImagePath;
   late double hikeElevation;
   late double hikeLength;
+  late double lat;
+  late double long;
 
-  Hikes(String name, String difficulty, String terrain, String location, String imagePath, double elevation, double length) {
+  Hikes(String name, String difficulty, String terrain, String location, String imagePath, double elevation, double length, this.lat,this.long) {
     hikeName = name;
     hikeDifficulty = difficulty;
     hikeTerrain = terrain;

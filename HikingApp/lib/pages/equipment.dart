@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hiking_app/reusable_widgets/AppHeader.dart';
+import 'package:hiking_app/reusable_widgets/HamburgerDrawer.dart';
 
 class Equipment extends StatefulWidget {
   const Equipment({Key? key}) : super(key: key);
@@ -71,6 +72,7 @@ class _EquipmentState extends State<Equipment> {
           );
         }
       ),
+      drawer: hamburgerDrawer(context),
     );
   }
 }

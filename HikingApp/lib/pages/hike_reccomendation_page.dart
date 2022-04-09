@@ -3,6 +3,7 @@ import 'package:hiking_app/backend/DefaultHikeList.dart';
 import 'package:hiking_app/reusable_widgets/AppHeader.dart';
 import 'package:hiking_app/reusable_widgets/HikeCardDisplay.dart';
 import 'package:hiking_app/reusable_widgets/SortBox.dart';
+import 'package:hiking_app/reusable_widgets/HamburgerDrawer.dart';
 
 class HikeRecommendationPage extends StatefulWidget {
   const HikeRecommendationPage({Key? key}) : super(key: key);
@@ -39,6 +40,7 @@ class _HikeRecommendationPageState extends State<HikeRecommendationPage> {
           HikeCardDisplay.withList(DefaultHikeList().getHikeList()),
         ],
       ),
+      drawer: hamburgerDrawer(context),
     );
   }
 }

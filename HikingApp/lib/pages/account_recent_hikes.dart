@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hiking_app/reusable_widgets/AppHeader.dart';
 import 'package:hiking_app/reusable_widgets/HikeCardDisplay.dart';
 import 'package:hiking_app/reusable_widgets/SortBox.dart';
+import 'package:hiking_app/reusable_widgets/HamburgerDrawer.dart';
 
 class RecentActivity extends StatefulWidget {
   const RecentActivity({Key? key}) : super(key: key);
@@ -20,6 +21,7 @@ class _RecentActivityState extends State<RecentActivity> {
           HikeCardDisplay(),
         ],
       ),
+      drawer: hamburgerDrawer(context),
     );
   }
 }

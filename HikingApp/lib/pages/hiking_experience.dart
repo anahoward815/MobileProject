@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hiking_app/reusable_widgets/HamburgerDrawer.dart';
 
 import '../reusable_widgets/AppHeader.dart';
 
@@ -159,7 +160,8 @@ class _RateYourExperience extends State<RateYourExperience> {
             )
           ],
         ),
-      )
+      ),
+      drawer: hamburgerDrawer(context),
     );
   }
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hiking_app/reusable_widgets/AppHeader.dart';
 import 'package:hiking_app/reusable_widgets/HikeCardDisplay.dart';
 import 'package:hiking_app/reusable_widgets/SortBox.dart';
+import 'package:hiking_app/reusable_widgets/HamburgerDrawer.dart';
 
 class Challenge extends StatefulWidget {
   const Challenge({Key? key}) : super(key: key);
@@ -44,7 +45,8 @@ class _ChallengeState extends State<Challenge> {
           ),
           HikeCardDisplay(),
         ],
-      )
+      ),
+      drawer: hamburgerDrawer(context),
     );
   }
 }

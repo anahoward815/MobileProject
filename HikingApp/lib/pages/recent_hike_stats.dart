@@ -3,6 +3,7 @@ import 'package:hiking_app/backend/Hikes.dart';
 import 'package:hiking_app/reusable_widgets/AppHeader.dart';
 import 'package:hiking_app/reusable_widgets/HikeCardDisplay.dart';
 import 'package:hiking_app/reusable_widgets/SortBox.dart';
+import 'package:hiking_app/reusable_widgets/HamburgerDrawer.dart';
 
 class RecentHikeStats extends StatefulWidget {
   const RecentHikeStats({Key? key}) : super(key: key);
@@ -129,6 +130,7 @@ class _RecentHikeStatsState extends State<RecentHikeStats> {
           ],
         ),
       ),
+      drawer: hamburgerDrawer(context),
     );
   }
 }

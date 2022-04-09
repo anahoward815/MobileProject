@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hiking_app/reusable_widgets/AppHeader.dart';
 import 'package:hiking_app/reusable_widgets/EquipmentCard.dart';
+import 'package:hiking_app/reusable_widgets/HamburgerDrawer.dart';
 import 'package:hiking_app/reusable_widgets/HikeCardDisplay.dart';
 import 'package:hiking_app/reusable_widgets/SortBox.dart';
 
@@ -72,7 +73,7 @@ class _AccountEquipmentState extends State<AccountEquipment> {
             ),
         ),
       ),
-
+      drawer: hamburgerDrawer(context),
     );
   }
 

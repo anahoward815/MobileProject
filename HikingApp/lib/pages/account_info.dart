@@ -6,6 +6,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hiking_app/reusable_widgets/AppHeader.dart';
+import 'package:hiking_app/reusable_widgets/HamburgerDrawer.dart';
 import 'package:hiking_app/reusable_widgets/HikeCardDisplay.dart';
 import 'package:hiking_app/reusable_widgets/SortBox.dart';
 import 'package:hiking_app/reusable_widgets/UserCard.dart';
@@ -61,6 +62,7 @@ class _AccountInfoState extends State<AccountInfo> {
           ],
         ),
       ),
+      drawer: hamburgerDrawer(context),
     );
   }
 }

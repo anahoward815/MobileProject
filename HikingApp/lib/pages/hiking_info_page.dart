@@ -3,6 +3,7 @@ import 'package:hiking_app/backend/Hikes.dart';
 import 'package:hiking_app/backend/SavedHikes.dart';
 import 'package:hiking_app/reusable_widgets/weatherDisplay.dart';
 import 'package:hiking_app/backend/Weather.dart';
+import 'package:hiking_app/reusable_widgets/HamburgerDrawer.dart';
 
 import '../reusable_widgets/AppHeader.dart';
 
@@ -269,6 +270,7 @@ class _HikingInfoState extends State<HikingInfo> {
           ),
         ),
       ),
+      drawer: hamburgerDrawer(context),
     );
   }
 }

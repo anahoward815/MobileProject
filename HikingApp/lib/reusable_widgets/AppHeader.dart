@@ -7,4 +7,3 @@ PreferredSizeWidget appHeader() {
 
   );
 }
-

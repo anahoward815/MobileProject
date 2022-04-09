@@ -97,7 +97,9 @@ class _StartState extends State<Start> {
                     'location': 'Utah County',
                     'imagePath': 'assets/images/timpanogos.jpg',
                     'elevation': 4400.0,
-                    'length': 13.0
+                    'length': 13.0,
+                    'lat': 40.40731,
+                    'long': -111.65467,
                   });
                 },
               ),

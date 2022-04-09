@@ -1,10 +1,6 @@
-import 'dart:convert';
-import 'dart:io';
-import 'package:http/http.dart';
 import 'package:flutter/material.dart';
 import 'package:hiking_app/backend/Hikes.dart';
 import 'package:hiking_app/backend/SavedHikes.dart';
-import 'package:hiking_app/reusable_widgets/TimpanogosHikeMap.dart';
 import 'package:hiking_app/reusable_widgets/weatherDisplay.dart';
 import 'package:hiking_app/backend/Weather.dart';
 
@@ -34,26 +30,20 @@ class _HikingInfoState extends State<HikingInfo> {
   double low = 6.46;
   String currentWeatherIcon = '';
   String currentIconUrl = '';
-
-  void getWeather() async {
-    // Weather instance = Weather(0.0,0.0);
-    await Weather.inst.init(0.0, 0.0);
-    currentTemp = Weather.inst.currentTemp;
-    high = Weather.inst.high;
-    low = Weather.inst.low;
-    currentIconUrl = Weather.inst.currentIconUrl;
-  }
+  
+  late Map data;
+  late Weather weather;
 
   @override
   void initState() {
     super.initState();
-    getWeather();
   }
 
   @override
   Widget build(BuildContext context) {
-    // getWeather();
-    // sleep(const Duration(seconds: 10));
+    data = ModalRoute.of(context)!.settings.arguments as Map;
+    weather = data['weather'];
+    print(weather.currentWeatherIcon);
     return Scaffold(
       appBar: appHeader(),
       body: SingleChildScrollView(
@@ -75,13 +65,6 @@ class _HikingInfoState extends State<HikingInfo> {
                   )
               ),
               SizedBox(height: 10.0,),
-              Card(
-                color: Colors.grey[200],
-                child: Container(
-                  height: 400,
-                  child: TimpanogosHikeMap(),
-                )
-              ),
               SizedBox(height: 10.0,),
               Card(
                 color: Colors.grey[200],
@@ -136,13 +119,13 @@ class _HikingInfoState extends State<HikingInfo> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    DailyWeather.day('Mon'),
-                    DailyWeather.day('Tues'),
-                    DailyWeather.day('Wed'),
-                    DailyWeather.day('Thurs'),
-                    DailyWeather.day('Fri'),
-                    DailyWeather.day('Sat'),
-                    DailyWeather.day('Sun'),
+                    DailyWeather.day('Mon', weather.currentWeatherIcon),
+                    DailyWeather.day('Tues', weather.weatherIcon1),
+                    DailyWeather.day('Wed', weather.weatherIcon2),
+                    DailyWeather.day('Thurs', weather.weatherIcon3),
+                    DailyWeather.day('Fri', weather.weatherIcon4),
+                    DailyWeather.day('Sat', weather.weatherIcon5),
+                    DailyWeather.day('Sun', weather.weatherIcon6),
                   ],
                 ),
               ),
@@ -155,43 +138,46 @@ class _HikingInfoState extends State<HikingInfo> {
               ),
               Card(
                 color: Colors.lightBlueAccent,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(30.0, 0.0, 0.0, 0.0),
-                      // child: Image.network(currentIconUrl),
-                      child: Icon(
-                        Icons.wb_sunny_outlined,
-                        size: 40.0,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 18.0),
+                        child: Icon(
+                          determineWeatherIcon((weather.currentWeatherIcon)),
+                          size: 40.0,
+                        ),
                       ),
-                    ),
-                    SizedBox(width: 30.0,),
-                    Text(
-                        currentTemp.toString() + ' F',
-                        style: TextStyle(
-                          fontSize: 30.0
-                        ),
-                    ),
-                    SizedBox(width: 50.0,),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'High: ' + high.toString() + ' F',
+                      SizedBox(width: 30.0,),
+                      Text(
+                          weather.currentTemp.toString() + ' F',
                           style: TextStyle(
-                              fontSize: 20.0
+                            fontSize: 30.0
                           ),
-                        ),
-                        Text(
-                          'Low: ' + low.toString() + ' F',
-                          style: TextStyle(
-                              fontSize: 20.0
+                      ),
+                      SizedBox(width: 40.0,),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'High: ' + weather.high.toString() + ' F',
+                            style: TextStyle(
+                                fontSize: 20.0
+                            ),
                           ),
-                        )
-                      ],
-                    )
-                  ],
+                          Text(
+                            'Low: ' + weather.low.toString() + ' F',
+                            style: TextStyle(
+                                fontSize: 20.0
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
               Card(

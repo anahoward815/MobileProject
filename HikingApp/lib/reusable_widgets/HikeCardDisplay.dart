@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hiking_app/backend/Hikes.dart';
+import 'package:hiking_app/backend/Weather.dart';
 
 import '../backend/DefaultHikeList.dart';
 
@@ -18,6 +19,14 @@ class _HikeCardDisplayState extends State<HikeCardDisplay> {
 
   late List<Hikes> hikeList;
 
+  Future<void> card_clicked(double lat, double long) async {
+    Weather weather = Weather(lat, long);
+    await weather.getWeather();
+    Navigator.pushNamed(context, '/hikeInfo', arguments: {
+      'weather': weather,
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -25,55 +34,55 @@ class _HikeCardDisplayState extends State<HikeCardDisplay> {
         itemCount: widget.hikeList.length,
         itemBuilder: (BuildContext context, int index){
           return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GestureDetector(
-              onTap: () => print(widget.hikeList[index].getHikeName()),
-              child: Card(
-                child: Column(
-                  children: [
-                    Image(
-                      image: AssetImage(widget.hikeList[index].getHikeImagePath()),
+              padding: const EdgeInsets.all(8.0),
+              child: GestureDetector(
+                onTap: () => card_clicked(widget.hikeList[index].lat, widget.hikeList[index].long),
+                child: Card(
+                  child: Column(
+                    children: [
+                      Image(
+                        image: AssetImage(widget.hikeList[index].getHikeImagePath()),
 
-                    ),
-                    Card(
-                      margin: EdgeInsets.zero,
-                      color: Colors.lightGreen,
-                      elevation: 0.0,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              children: [
-                                Text(
-                                  widget.hikeList[index].getHikeName(),
-                                  style: TextStyle(
-                                      fontSize: 20.0
-                                  ),
-                                ),
-                                Text(
-                                  widget.hikeList[index].getHikeDifficulty(),
-                                )
-                              ],
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              widget.hikeList[index].getHikeLength().toString(),
-                            ),
-                          ),
-                        ],
                       ),
-                    ),
-                  ],
+                      Card(
+                        margin: EdgeInsets.zero,
+                        color: Colors.lightGreen,
+                        elevation: 0.0,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    widget.hikeList[index].getHikeName(),
+                                    style: TextStyle(
+                                        fontSize: 20.0
+                                    ),
+                                  ),
+                                  Text(
+                                    widget.hikeList[index].getHikeDifficulty(),
+                                  )
+                                ],
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                widget.hikeList[index].getHikeLength().toString(),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
 
-            ),
-          );
+              ),
+            );
         },
       ),
     );

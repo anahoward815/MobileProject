@@ -46,6 +46,7 @@ class _SavedHikesPage extends State<SavedHikesPage> {
           HikeCardDisplay.withList(getHikes()),
           ElevatedButton(
             onPressed: () {
+              Navigator.pushNamed(context, '/hikeRecommendation');
             },
             child: Text(
               'Add Hike +',

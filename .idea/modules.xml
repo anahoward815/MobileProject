@@ -5,10 +5,10 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/MobileProject.iml" filepath="$PROJECT_DIR$/.idea/MobileProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/android.iml" filepath="$PROJECT_DIR$/.idea/modules/android.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2057294642/android.flutter_osm_plugin.iml" filepath="$PROJECT_DIR$/.idea/modules/2057294642/android.flutter_osm_plugin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1936133004/android.flutter_plugin_android_lifecycle.iml" filepath="$PROJECT_DIR$/.idea/modules/-1936133004/android.flutter_plugin_android_lifecycle.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2127670207/android.permission_handler.iml" filepath="$PROJECT_DIR$/.idea/modules/-2127670207/android.permission_handler.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1666585774/android.url_launcher_android.iml" filepath="$PROJECT_DIR$/.idea/modules/-1666585774/android.url_launcher_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-369026523/com.baseflow.permissionhandler.android.permission_handler.iml" filepath="$PROJECT_DIR$/.idea/modules/-369026523/com.baseflow.permissionhandler.android.permission_handler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-494759218/hamza.dali.flutter_osm_plugin.android.flutter_osm_plugin.iml" filepath="$PROJECT_DIR$/.idea/modules/-494759218/hamza.dali.flutter_osm_plugin.android.flutter_osm_plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-31876264/io.flutter.plugins.flutter_plugin_android_lifecycle.android.flutter_plugin_android_lifecycle.iml" filepath="$PROJECT_DIR$/.idea/modules/-31876264/io.flutter.plugins.flutter_plugin_android_lifecycle.android.flutter_plugin_android_lifecycle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/76327662/io.flutter.plugins.urllauncher.android.url_launcher_android.iml" filepath="$PROJECT_DIR$/.idea/modules/76327662/io.flutter.plugins.urllauncher.android.url_launcher_android.iml" />
     </modules>
   </component>
 </project>

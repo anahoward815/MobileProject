@@ -6,15 +6,8 @@ import 'package:hiking_app/backend/Weather.dart';
 
 import '../reusable_widgets/AppHeader.dart';
 
-late Hikes hike;
-
-
 class HikingInfo extends StatefulWidget {
   HikingInfo({Key? key}) : super(key: key);
-
-  HikingInfo.Info(Hikes val) {
-      hike = val;
-  }
 
   @override
   State<HikingInfo> createState() => _HikingInfoState();
@@ -33,6 +26,7 @@ class _HikingInfoState extends State<HikingInfo> {
   
   late Map data;
   late Weather weather;
+  late Hikes hike;
 
   @override
   void initState() {
@@ -43,6 +37,7 @@ class _HikingInfoState extends State<HikingInfo> {
   Widget build(BuildContext context) {
     data = ModalRoute.of(context)!.settings.arguments as Map;
     weather = data['weather'];
+    hike = data['hike'];
     print(weather.currentWeatherIcon);
     return Scaffold(
       appBar: appHeader(),

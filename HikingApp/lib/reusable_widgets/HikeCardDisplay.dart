@@ -19,11 +19,12 @@ class _HikeCardDisplayState extends State<HikeCardDisplay> {
 
   late List<Hikes> hikeList;
 
-  Future<void> card_clicked(double lat, double long) async {
+  Future<void> card_clicked(double lat, double long, Hikes hike) async {
     Weather weather = Weather(lat, long);
     await weather.getWeather();
     Navigator.pushNamed(context, '/hikeInfo', arguments: {
       'weather': weather,
+      'hike': hike,
     });
   }
 
@@ -36,7 +37,7 @@ class _HikeCardDisplayState extends State<HikeCardDisplay> {
           return Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
-                onTap: () => card_clicked(widget.hikeList[index].lat, widget.hikeList[index].long),
+                onTap: () => card_clicked(widget.hikeList[index].lat, widget.hikeList[index].long, widget.hikeList[index]),
                 child: Card(
                   child: Column(
                     children: [

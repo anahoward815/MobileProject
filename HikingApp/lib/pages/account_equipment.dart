@@ -15,7 +15,7 @@ class AccountEquipment extends StatefulWidget {
 
 
 class _AccountEquipmentState extends State<AccountEquipment> {
-  List<String> equipment = ["Heavy-duty Boots", "Running Shoes", "Tank top", "running shorts", "Camelback", "Moleskin"];
+  List<String> equipment = ["Heavy-duty Boots", "Running Shoes", "Tank Top", "Running Shorts", "Camelback", "Moleskin"];
 
   final textFieldValueHolder = TextEditingController();
 
@@ -55,7 +55,7 @@ class _AccountEquipmentState extends State<AccountEquipment> {
                       padding: EdgeInsets.all(12),
                       textStyle: TextStyle(fontSize: 22),
                     ),
-                    child: Text('Add Value To String Array'),
+                    child: Text('Add Equipment'),
                     onPressed: addValue,
                   ),
                 ),
@@ -89,12 +89,31 @@ class _AccountEquipmentState extends State<AccountEquipment> {
     return columnContent;
   }
 
-  showAlert(BuildContext context) {
+  showEmptyAlert(BuildContext context) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: new Text('Please Enter Value in Text Field.'),
+          title: new Text('Please Enter Equipment'),
+          actions: <Widget>[
+            ElevatedButton(
+              child: new Text("OK"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  showAddedAlert(BuildContext context, String text) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: new Text('You added ' + text),
           actions: <Widget>[
             ElevatedButton(
               child: new Text("OK"),
@@ -110,10 +129,11 @@ class _AccountEquipmentState extends State<AccountEquipment> {
 
   void addValue() {
     if (textFieldValueHolder.text == '') {
-      showAlert(context);
+      showEmptyAlert(context);
     } else {
       setState(() {
         equipment.add(textFieldValueHolder.text);
+        showAddedAlert(context, textFieldValueHolder.text);
       });
       print(equipment);
     }

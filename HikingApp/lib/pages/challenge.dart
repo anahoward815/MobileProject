@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hiking_app/backend/ChallengeHikeList.dart';
+import 'package:hiking_app/backend/Hikes.dart';
 import 'package:hiking_app/reusable_widgets/AppHeader.dart';
 import 'package:hiking_app/reusable_widgets/HikeCardDisplay.dart';
 import 'package:hiking_app/reusable_widgets/SortBox.dart';
@@ -12,6 +14,8 @@ class Challenge extends StatefulWidget {
 }
 
 class _ChallengeState extends State<Challenge> {
+
+  final List<Hikes> challengeHikes = ChallengeHikeList.getHikeList();
 
   String challengeHeader = 'These hikes are geared towards pushing you a little harder '
       'physically. Don\'t worry, they are still appropriate '
@@ -43,7 +47,7 @@ class _ChallengeState extends State<Challenge> {
               ],
             ),
           ),
-          HikeCardDisplay(),
+          HikeCardDisplay.withList(challengeHikes),
         ],
       ),
       drawer: hamburgerDrawer(context),

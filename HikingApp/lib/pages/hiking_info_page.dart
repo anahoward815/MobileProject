@@ -60,6 +60,12 @@ class _HikingInfoState extends State<HikingInfo> {
                   )
               ),
               SizedBox(height: 10.0,),
+              Image(
+                  image: AssetImage(
+                      hike.hikeMapPath
+                  )
+              ),
+              SizedBox(height: 10.0,),
               SizedBox(height: 10.0,),
               Card(
                 color: Colors.grey[200],

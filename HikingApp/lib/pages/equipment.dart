@@ -12,6 +12,7 @@ class Equipment extends StatefulWidget {
 class _EquipmentState extends State<Equipment> {
 
   Map<String, bool> equipmentList = {
+    "empty spot": false,
     "Hiking Backpack": false,
     "Water Bottle": false,
     "Sun protection": false,
@@ -36,6 +37,18 @@ class _EquipmentState extends State<Equipment> {
         itemBuilder: (context, index) {
           bool _value = equipmentList.values.elementAt(index);
           String item = equipmentList.keys.elementAt(index);
+          if (index == 0) {
+            return Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Text(
+                "Tell us what equipment you have:",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 24,
+                ),
+              ),
+            );
+          }
           if (index == equipmentList.keys.length - 1) {
             return Container(
               margin: const EdgeInsets.fromLTRB(160, 0, 160, 0),

@@ -19,6 +19,7 @@ class Hikes {
     hikeTerrain = terrain;
     hikeLocation = location;
     hikeImagePath = imagePath;
+    hikeMapPath = mapPath;
     hikeElevation = elevation;
     hikeLength = length;
   }

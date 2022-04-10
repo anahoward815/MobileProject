@@ -15,7 +15,7 @@ import 'package:hiking_app/pages/saved_hikes.dart';
 import 'package:hiking_app/pages/test_start_page.dart';
 
 void main() => runApp(MaterialApp(
-  initialRoute: '/',
+  initialRoute: '/exp',
   routes: {
     '/exp': (context) => RateYourExperience(),
     '/equipment': (context) => Equipment(),

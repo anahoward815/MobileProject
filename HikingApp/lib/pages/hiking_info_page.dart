@@ -39,7 +39,6 @@ class _HikingInfoState extends State<HikingInfo> {
     data = ModalRoute.of(context)!.settings.arguments as Map;
     weather = data['weather'];
     hike = data['hike'];
-    print(weather.currentWeatherIcon);
     return Scaffold(
       appBar: appHeader(),
       body: SingleChildScrollView(
@@ -252,7 +251,6 @@ class _HikingInfoState extends State<HikingInfo> {
                     print('big mistake');
                     await SavedHikes.inst.init();
                     SavedHikes.inst.addHike(hike);
-                    print(SavedHikes.inst.getList().elementAt(0));
                     setState(() {
                       saveText = 'Saved';
                       pressed = true;

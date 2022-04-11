@@ -18,7 +18,7 @@ Drawer hamburgerDrawer(BuildContext context) {
         ),
         ListTile(
           title: const Text(
-            'Add More Equipment',
+            'My Equipment',
             style: TextStyle(fontSize: 24.0),
           ),
           onTap: () {

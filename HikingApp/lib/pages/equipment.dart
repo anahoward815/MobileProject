@@ -14,14 +14,14 @@ class _EquipmentState extends State<Equipment> {
   Map<String, bool> equipmentList = {
     "Hiking Backpack": false,
     "Water Bottle": false,
-    "Sun protection": false,
-    "First Aid kit": false,
-    "Hiking pants": false,
-    "Hiking boots": false,
-    "Base layers": false,
-    "Trekking poles": false,
+    "Camelback": false,
+    "Moleskin": false,
+    "Tank Top": false,
+    "Heavy-Duty boots": false,
+    "Running Shoes": false,
+    "Running Shorts": false,
     "Hat": false,
-    "empty spot": false,
+    "Moleskin": false,
   };
 
   Map<int, bool> selectedFlag = {};
